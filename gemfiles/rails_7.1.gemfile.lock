@@ -234,6 +234,10 @@ GEM
     rubocop-ast (1.46.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
+    rubocop-minitest (0.38.2)
+      lint_roller (~> 1.1)
+      rubocop (>= 1.75.0, < 2.0)
+      rubocop-ast (>= 1.38.0, < 2.0)
     rubocop-performance (1.26.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -283,6 +287,7 @@ DEPENDENCIES
   puma
   rails (~> 7.1)
   rails-snowflake!
+  rubocop-minitest
   rubocop-rails-omakase
 
 BUNDLED WITH

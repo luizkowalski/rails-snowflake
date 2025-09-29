@@ -7,6 +7,7 @@ source "https://rubygems.org"
 gem "puma"
 gem "pg"
 gem "rubocop-rails-omakase", require: false
+gem "rubocop-minitest"
 gem "debug"
 gem "appraisal", group: [ :development, :test ]
 gem "rails", "~> 7.2"
