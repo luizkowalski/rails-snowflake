@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   end
 
   # Support Rails 7.1, 7.2 and 8.0. Cap at < 8.1 until verified.
-  spec.add_dependency "rails", ">= 7.1", "< 8.1"
+  spec.add_dependency "rails", ">= 7.1", "< 8.2"
 
   spec.required_ruby_version = ">= 3.2"
 end
