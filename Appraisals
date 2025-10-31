@@ -14,8 +14,6 @@ end
 
 appraise "rails-8.0" do
   gem "rails", "~> 8.0"
-  gem "stringio", "~> 3.1"
-  gem "uri", "1.0.3"
 end
 
 appraise "rails-8.1" do

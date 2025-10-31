@@ -11,7 +11,5 @@ gem "rubocop-minitest"
 gem "debug"
 gem "appraisal", group: [ :development, :test ]
 gem "rails", "~> 8.0"
-gem "stringio", "~> 3.1"
-gem "uri", "1.0.3"
 
 gemspec path: "../"

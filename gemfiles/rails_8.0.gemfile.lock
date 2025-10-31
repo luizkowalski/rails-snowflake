@@ -286,8 +286,6 @@ DEPENDENCIES
   rails-snowflake!
   rubocop-minitest
   rubocop-rails-omakase
-  stringio (~> 3.1)
-  uri (= 1.0.3)
 
 BUNDLED WITH
    2.7.2
