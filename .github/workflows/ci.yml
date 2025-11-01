@@ -27,8 +27,8 @@ jobs:
       fail-fast: false
       matrix:
         ruby: ["3.2", "3.3", "3.4"]
-        rails: ["rails-7.1", "rails-7.2", "rails-8.0"]
-        postgres: ["15", "16"]
+        rails: ["rails-7.1", "rails-7.2", "rails-8.0", "rails-8.1"]
+        postgres: ["16", "17", "18"]
     services:
       postgres:
         image: postgres:${{ matrix.postgres }}
@@ -46,7 +46,13 @@ jobs:
 
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config postgresql-client
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config wget ca-certificates lsb-release gnupg2
+          wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/keyrings/postgresql.gpg
+          echo "deb [signed-by=/etc/apt/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y postgresql-client-${{ matrix.postgres }}
 
       - name: Checkout code
         uses: actions/checkout@v5
@@ -63,7 +69,6 @@ jobs:
       - name: Show environment
         run: |
           ruby -v
-          bundle exec appraisal list
           psql --version
 
       - name: Prepare test database (migrate)
