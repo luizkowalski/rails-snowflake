@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class InstallSnowflakeId < ActiveRecord::Migration[7.1]
+class InstallSnowflakeId < ActiveRecord::Migration[7.2]
   def up
     # Create the timestamp_id PostgreSQL function
     Rails::Snowflake::Id.define_timestamp_id
