@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby: ["3.2", "3.3", "3.4"]
-        rails: ["rails-7.1", "rails-7.2", "rails-8.0", "rails-8.1"]
+        rails: ["rails-7.2", "rails-8.0", "rails-8.1"]
         postgres: ["16", "17", "18"]
     services:
       postgres:
@@ -55,7 +55,7 @@ jobs:
           sudo apt-get install --no-install-recommends -y postgresql-client-${{ matrix.postgres }}
 
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
