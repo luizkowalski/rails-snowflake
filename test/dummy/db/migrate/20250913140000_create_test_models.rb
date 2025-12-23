@@ -2,9 +2,7 @@
 
 class CreateTestModels < ActiveRecord::Migration[7.2]
   def change
-    # Test model with snowflake primary key
-    create_table :users, id: false do |t|
-      t.snowflake :id, primary_key: true
+    create_table :users, id: :snowflake do |t|
       t.string :name
       t.string :email
       t.timestamps
@@ -20,8 +18,7 @@ class CreateTestModels < ActiveRecord::Migration[7.2]
     end
 
     # Test model with multiple snowflake columns
-    create_table :orders, id: false do |t|
-      t.snowflake :id, primary_key: true
+    create_table :orders, id: :snowflake do |t|
       t.snowflake :tracking_id
       t.snowflake :confirmation_id
       t.decimal :amount

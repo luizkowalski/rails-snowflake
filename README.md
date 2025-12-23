@@ -30,14 +30,13 @@ rails generate rails_snowflake:install
 
 ## Quick Start
 
-**That's it!** Just use `t.snowflake` in your migrations and everything works automatically.
+**That's it!** Just use `id: :snowflake` or `t.snowflake` in your migrations and everything works automatically.
 
 ### For Snowflake ID as primary key:
 ```ruby
-class CreateUsers < ActiveRecord::Migration[8.0]
+class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :users, id: false do |t|
-      t.snowflake :id, primary_key: true  # Snowflake primary key
+    create_table :users, id: :snowflake do |t|
       t.string :name
       t.timestamps
     end
@@ -45,11 +44,8 @@ class CreateUsers < ActiveRecord::Migration[8.0]
 end
 ```
 
-**Note**: When using `t.snowflake :id` directly, Rails will complain about redefining the primary key. Always use `create_table :table_name, id: false` when you want a snowflake primary key.
-
-### For additional snowflake columns (non-primary key):
 ```ruby
-class CreatePosts < ActiveRecord::Migration[8.0]
+class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
       t.string :title
@@ -116,7 +112,7 @@ execute("ALTER TABLE table_name ALTER COLUMN id SET DEFAULT timestamp_id('table_
 ## Requirements
 
 - **Database**: PostgreSQL >= 15
-- **Rails**: 7.1+
+- **Rails**: 7.2+
 - **Ruby**: 3.2+
 
 ## How it Works

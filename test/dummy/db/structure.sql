@@ -33,7 +33,7 @@ CREATE FUNCTION public.timestamp_id(table_name text) RETURNS bigint
       -- Take the first two bytes (four hex characters)
       substr(
         -- Of the MD5 hash of the data we documented
-        md5(table_name || '603b432d4ede6115f3fc4ae7d57b2160' || time_part::text),
+        md5(table_name || '5a334dd165341c477091d0cfbc146a25' || time_part::text),
         1, 4
       )
     -- And turn it into a bigint
@@ -195,13 +195,6 @@ CREATE INDEX index_orders_on_confirmation_id ON public.orders USING btree (confi
 
 
 --
--- Name: index_orders_on_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_orders_on_id ON public.orders USING btree (id);
-
-
---
 -- Name: index_orders_on_tracking_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -213,13 +206,6 @@ CREATE INDEX index_orders_on_tracking_id ON public.orders USING btree (tracking_
 --
 
 CREATE INDEX index_posts_on_external_id ON public.posts USING btree (external_id);
-
-
---
--- Name: index_users_on_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_users_on_id ON public.users USING btree (id);
 
 
 --
