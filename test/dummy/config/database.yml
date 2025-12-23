@@ -14,3 +14,7 @@ default: &default
 test:
   <<: *default
   database: rails_snowflake_test
+
+development:
+  <<: *default
+  database: rails_snowflake_development

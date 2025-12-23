@@ -277,6 +277,7 @@ PLATFORMS
 DEPENDENCIES
   appraisal
   debug
+  minitest (< 6)
   pg
   puma
   rails (~> 7.2)

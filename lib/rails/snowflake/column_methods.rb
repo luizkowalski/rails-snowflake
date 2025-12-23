@@ -13,6 +13,7 @@ module Rails
       end
 
       options[:default] = -> { "timestamp_id('#{@name}'::text)" }
+      options[:index] ||= true
 
       column(name, :bigint, **options)
     end

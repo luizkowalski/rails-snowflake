@@ -33,7 +33,7 @@ CREATE FUNCTION public.timestamp_id(table_name text) RETURNS bigint
       -- Take the first two bytes (four hex characters)
       substr(
         -- Of the MD5 hash of the data we documented
-        md5(table_name || '084a28008fc5636939157cfe94fe4b7d' || time_part::text),
+        md5(table_name || '603b432d4ede6115f3fc4ae7d57b2160' || time_part::text),
         1, 4
       )
     -- And turn it into a bigint
@@ -82,18 +82,6 @@ CREATE TABLE public.orders (
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
-
-
---
--- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.orders_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 --
@@ -153,18 +141,6 @@ CREATE TABLE public.users (
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.users_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -209,6 +185,41 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_orders_on_confirmation_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_orders_on_confirmation_id ON public.orders USING btree (confirmation_id);
+
+
+--
+-- Name: index_orders_on_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_orders_on_id ON public.orders USING btree (id);
+
+
+--
+-- Name: index_orders_on_tracking_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_orders_on_tracking_id ON public.orders USING btree (tracking_id);
+
+
+--
+-- Name: index_posts_on_external_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_posts_on_external_id ON public.posts USING btree (external_id);
+
+
+--
+-- Name: index_users_on_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_users_on_id ON public.users USING btree (id);
 
 
 --

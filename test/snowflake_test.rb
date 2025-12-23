@@ -76,6 +76,12 @@ class SnowflakeTest < ActiveSupport::TestCase
     end
   end
 
+  test "indexes are created for snowflake columns" do
+    indexes = ActiveRecord::Base.connection.indexes(:posts).flat_map &:name
+
+    assert_includes indexes, "index_posts_on_external_id"
+  end
+
   test "snowflake column method detects id with primary_key set to false " do
     assert_raises(Rails::Snowflake::Error, match: /Cannot use t.snowflake :id directly/) do
       ActiveRecord::Migration[7.1].new.instance_eval do
