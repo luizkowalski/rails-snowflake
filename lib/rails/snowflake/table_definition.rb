@@ -12,16 +12,16 @@ module Rails
       end
 
       def snowflake(column_name, **options)
+        if column_name == :id || options[:primary_key] == true
+          raise Error, "Cannot use t.snowflake :id directly. Use `create_table :table_name, id: :snowflake` instead."
+        end
+
         unless @name
           raise Error, "Could not determine table name for Snowflake column. Make sure you're using it within a `create_table` block."
         end
 
-        if column_name == :id
-          raise Error, "Cannot use t.snowflake :id directly. Use `create_table :table_name, id: :snowflake` instead."
-        end
-
         options[:default] ||= -> { "timestamp_id('#{@name}'::text)" }
-        options[:index] ||= true unless options[:primary_key]
+        options[:index] ||= true
 
         column(column_name, :snowflake, **options)
       end
