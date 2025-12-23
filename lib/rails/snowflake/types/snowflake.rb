@@ -9,6 +9,7 @@ module Rails
         end
 
         def cast(value)
+          return nil if value.nil?
           value.to_i
         end
       end
