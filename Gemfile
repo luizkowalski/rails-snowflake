@@ -9,7 +9,7 @@ gem "puma"
 
 gem "pg"
 
-gem "minitest", "< 6"
+gem "minitest", "< 7"
 
 # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
 gem "rubocop-rails-omakase", require: false
