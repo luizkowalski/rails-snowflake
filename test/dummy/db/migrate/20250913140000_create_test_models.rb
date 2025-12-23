@@ -2,7 +2,6 @@
 
 class CreateTestModels < ActiveRecord::Migration[7.2]
   def change
-    # Test model with snowflake primary key
     create_table :users, id: :snowflake do |t|
       t.string :name
       t.string :email

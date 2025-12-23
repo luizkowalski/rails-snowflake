@@ -33,7 +33,7 @@ CREATE FUNCTION public.timestamp_id(table_name text) RETURNS bigint
       -- Take the first two bytes (four hex characters)
       substr(
         -- Of the MD5 hash of the data we documented
-        md5(table_name || 'fd55f7b3fc728ee9cda770c0833d5bc0' || time_part::text),
+        md5(table_name || '5a334dd165341c477091d0cfbc146a25' || time_part::text),
         1, 4
       )
     -- And turn it into a bigint
