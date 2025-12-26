@@ -12,5 +12,6 @@ gem "rubocop-minitest"
 gem "debug"
 gem "appraisal", group: [ :development, :test ]
 gem "rails", "~> 7.2"
+gem "net-imap", ">= 0.6.0"
 
 gemspec path: "../"
