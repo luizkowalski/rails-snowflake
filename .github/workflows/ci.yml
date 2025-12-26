@@ -26,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: ["3.2", "3.3", "3.4"]
+        ruby: ["3.2", "3.3", "3.4", "4.0"]
         rails: ["rails-7.2", "rails-8.0", "rails-8.1"]
         postgres: ["16", "17", "18"]
     services:
