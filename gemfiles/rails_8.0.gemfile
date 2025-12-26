@@ -10,9 +10,9 @@ gem "minitest", "< 6"
 gem "rubocop-rails-omakase", require: false
 gem "rubocop-minitest"
 gem "debug"
-gem "cgi"
 gem "appraisal", group: [ :development, :test ]
 gem "rails", "~> 8.0"
 gem "uri", "1.1.0"
+gem "net-imap", ">= 0.6.0"
 
 gemspec path: "../"

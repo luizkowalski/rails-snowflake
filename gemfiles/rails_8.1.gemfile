@@ -10,7 +10,6 @@ gem "minitest", "< 6"
 gem "rubocop-rails-omakase", require: false
 gem "rubocop-minitest"
 gem "debug"
-gem "cgi"
 gem "appraisal", group: [ :development, :test ]
 gem "rails", "~> 8.1"
 
