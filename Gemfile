@@ -17,6 +17,8 @@ gem "rubocop-minitest"
 
 gem "debug"
 
+gem "cgi"
+
 # Manage Rails version matrix
 gem "appraisal", group: [ :development, :test ]
 
