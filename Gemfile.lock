@@ -123,8 +123,8 @@ GEM
       net-smtp
     marcel (1.1.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
-    minitest (5.27.0)
+    minitest (6.0.1)
+      prism (~> 1.5)
     net-imap (0.6.2)
       date
       net-protocol
@@ -135,9 +135,6 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.5)
-    nokogiri (1.18.10)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.18.10-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
@@ -264,7 +261,7 @@ PLATFORMS
 DEPENDENCIES
   appraisal
   debug
-  minitest (< 6)
+  minitest (< 7)
   pg
   puma
   rails-snowflake!
